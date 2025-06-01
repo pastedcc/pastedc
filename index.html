@@ -1,39 +1,32 @@
 <!DOCTYPE html>
-<html class="dark">
-<head>
-  <title>FastPaste</title>
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    .dark { background: #1a1a1a; color: #f0f0f0; }
-    .dark textarea { background: #2d2d2d; color: white; }
-  </style>
-</head>
-<body class="min-h-screen p-4">
-  <!-- Ad Banner (Top) -->
-  <div id="ad-banner" class="mb-4"></div>
-
-  <!-- Paste Box -->
-  <div class="max-w-3xl mx-auto">
-    <h1 class="text-3xl font-bold mb-4">FastPaste</h1>
-    <textarea 
-      id="paste-content" 
-      class="w-full h-64 p-4 rounded-lg border border-gray-300 dark:border-gray-600" 
-      placeholder="Paste text here..."></textarea>
-    <button 
-      onclick="createPaste()" 
-      class="mt-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
-      Create Paste
-    </button>
-    <!-- Share Link -->
-    <div id="paste-url" class="mt-4 hidden">
-      <label class="block text-sm font-medium">Share URL:</label>
-      <input 
-        type="text" 
-        class="w-full p-2 bg-gray-100 dark:bg-gray-700 rounded" 
-        readonly>
-    </div>
-  </div>
-
-  <!-- Visitor Stats -->
-  <div class="mt-
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>PasteBin - Simple Text Sharing</title>
+    <meta name="description" content="Simple, fast text sharing for developers. Create and share code snippets with syntax highlighting, custom expiration, and direct links." />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pastebin.example.com/" />
+    <meta property="og:title" content="PasteBin - Simple Text Sharing" />
+    <meta property="og:description" content="Simple, fast text sharing for developers. Create and share code snippets with syntax highlighting, custom expiration, and direct links." />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://pastebin.example.com/" />
+    <meta property="twitter:title" content="PasteBin - Simple Text Sharing" />
+    <meta property="twitter:description" content="Simple, fast text sharing for developers. Create and share code snippets with syntax highlighting, custom expiration, and direct links." />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
+    <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js"></script>
+  </body>
+</html>
