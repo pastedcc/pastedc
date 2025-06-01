@@ -1,19 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Admin Panel</title>
-  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-storage-compat.js"></script>
-  <script src="assets/admin.js"></script>
-</head>
-<body>
-  <h1>Admin Panel</h1>
-  
-  <!-- Upload Ad Banner -->
-  <input type="file" id="adUpload" accept="image/gif, image/jpeg, image/png">
-  <button onclick="uploadAd()">Upload Ad</button>
+<body class="dark bg-gray-900 p-4">
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-2xl font-bold mb-6">Admin Panel</h1>
+    
+    <!-- Upload Ad -->
+    <div class="bg-gray-800 p-4 rounded-lg mb-6">
+      <h2 class="text-xl mb-2">Ad Manager</h2>
+      <input type="file" id="ad-upload" class="mb-2">
+      <button 
+        onclick="uploadAd()" 
+        class="bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded">
+        Upload Ad
+      </button>
+    </div>
 
-  <!-- Paste Archive -->
-  <div id="pasteArchive"></div>
+    <!-- Paste Archive -->
+    <div class="bg-gray-800 p-4 rounded-lg">
+      <h2 class="text-xl mb-2">Paste Archive</h2>
+      <div id="paste-archive" class="space-y-2"></div>
+    </div>
+  </div>
 </body>
-</html>
