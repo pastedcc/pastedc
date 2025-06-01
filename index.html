@@ -1,25 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html class="dark">
 <head>
-  <title>Paste Site</title>
-  <link rel="stylesheet" href="assets/style.css">
-  <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-analytics-compat.js"></script>
-  <script src="assets/script.js"></script>
+  <title>FastPaste</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .dark { background: #1a1a1a; color: #f0f0f0; }
+    .dark textarea { background: #2d2d2d; color: white; }
+  </style>
 </head>
-<body>
-  <!-- Ad Banner (Managed by Admin) -->
-  <div id="adBanner"></div>
+<body class="min-h-screen p-4">
+  <!-- Ad Banner (Top) -->
+  <div id="ad-banner" class="mb-4"></div>
 
-  <!-- Paste Input -->
-  <textarea id="pasteInput" placeholder="Paste your text here..."></textarea>
-  <button onclick="createPaste()">Create Paste</button>
-  <input type="text" id="pasteUrl" readonly>
+  <!-- Paste Box -->
+  <div class="max-w-3xl mx-auto">
+    <h1 class="text-3xl font-bold mb-4">FastPaste</h1>
+    <textarea 
+      id="paste-content" 
+      class="w-full h-64 p-4 rounded-lg border border-gray-300 dark:border-gray-600" 
+      placeholder="Paste text here..."></textarea>
+    <button 
+      onclick="createPaste()" 
+      class="mt-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
+      Create Paste
+    </button>
+    <!-- Share Link -->
+    <div id="paste-url" class="mt-4 hidden">
+      <label class="block text-sm font-medium">Share URL:</label>
+      <input 
+        type="text" 
+        class="w-full p-2 bg-gray-100 dark:bg-gray-700 rounded" 
+        readonly>
+    </div>
+  </div>
 
-  <!-- Visitor Counter -->
-  <div id="visitorCount">Loading stats...</div>
-</body>
-</html>
+  <!-- Visitor Stats -->
+  <div class="mt-
