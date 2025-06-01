@@ -1,9 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My Website</title>
+    <title>Simple Pastebin</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        textarea { width: 100%; height: 300px; margin: 10px 0; }
+        button { padding: 10px 15px; background: #0078d7; color: white; border: none; cursor: pointer; }
+        button:hover { background: #005a9e; }
+        #url { width: 100%; padding: 8px; margin-top: 10px; }
+    </style>
 </head>
 <body>
-    <h1>Hello World! 🚀</h1>
+    <h1>Simple Pastebin</h1>
+    <textarea id="pasteContent" placeholder="Paste your text here..."></textarea><br>
+    <button onclick="savePaste()">Create Paste</button>
+    <input type="text" id="url" readonly placeholder="Shareable link will appear here...">
+    
+    <script>
+        function savePaste() {
+            const content = document.getElementById("pasteContent").value;
+            const hash = btoa(encodeURIComponent(content)); // Simple encoding
+            const pasteUrl = `${window.location.href.split('?')[0]}?p=${hash}`;
+            document.getElementById("url").value = pasteUrl;
+            window.location.hash = hash; // Store in URL
+        }
+
+        // Load paste from URL
+        window.onload = function() {
+            const hash = window.location.hash.substring(1) || 
+                        new URLSearchParams(window.location.search).get('p');
+            if (hash) {
+                try {
+                    const content = decodeURIComponent(atob(hash));
+                    document.getElementById("pasteContent").value = content;
+                } catch (e) {
+                    console.error("Invalid paste data");
+                }
+            }
+        };
+    </script>
 </body>
 </html>
