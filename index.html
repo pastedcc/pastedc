@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PasteDC | Modern Pastebin Service</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-content">
+        <div class="logo">
+          <i class="fas fa-paste"></i>
+          <h1>Paste<span>DC</span></h1>
+        </div>
+        <div class="theme-toggle">
+          <button id="theme-btn">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+          </button>
+        </div>
+      </div>
+      <p class="tagline">Share code snippets with style</p>
+    </header>
+
+    <main>
+      <div class="editor-container glass">
+        <div class="toolbar">
+          <div class="select-wrapper">
+            <i class="fas fa-code"></i>
+            <select id="language">
+              <option value="plaintext">Plain Text</option>
+              <option value="javascript">JavaScript</option>
+              <option value="python">Python</option>
+              <option value="java">Java</option>
+              <option value="csharp">C#</option>
+              <option value="php">PHP</option>
+              <option value="html">HTML</option>
+              <option value="css">CSS</option>
+              <option value="sql">SQL</option>
+              <option value="json">JSON</option>
+            </select>
+          </div>
+
+          <div class="select-wrapper">
+            <i class="fas fa-clock"></i>
+            <select id="expiration">
+              <option value="0">Never</option>
+              <option value="10">10 Minutes</option>
+              <option value="60">1 Hour</option>
+              <option value="1440">1 Day</option>
+              <option value="10080">1 Week</option>
+            </select>
+          </div>
+
+          <button id="paste-btn" class="glow">
+            <i class="fas fa-paper-plane"></i> Create Paste
+          </button>
+        </div>
+
+        <textarea id="content" placeholder="Paste your code or text here..."></textarea>
+      </div>
+
+      <div class="result-container glass hidden">
+        <div class="success-animation">
+          <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+            <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+            <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+          </svg>
+          <h2>Your paste is ready!</h2>
+        </div>
+        <div class="paste-url">
+          <input type="text" id="paste-url" readonly>
+          <button id="copy-btn" class="glow">
+            <i class="fas fa-copy"></i> Copy
+          </button>
+        </div>
+        <div class="share-buttons">
+          <button class="share-btn twitter">
+            <i class="fab fa-twitter"></i>
+          </button>
+          <button class="share-btn discord">
+            <i class="fab fa-discord"></i>
+          </button>
+          <button class="share-btn reddit">
+            <i class="fab fa-reddit"></i>
+          </button>
+        </div>
+        <button id="new-paste" class="glow">
+          <i class="fas fa-plus"></i> Create New Paste
+        </button>
+      </div>
+
+      <div class="view-container glass hidden">
+        <div class="paste-meta">
+          <span id="paste-language" class="meta-chip">
+            <i class="fas fa-code"></i> <span class="value"></span>
+          </span>
+          <span id="paste-views" class="meta-chip">
+            <i class="fas fa-eye"></i> <span class="value"></span>
+          </span>
+          <span id="paste-expires" class="meta-chip">
+            <i class="fas fa-clock"></i> <span class="value"></span>
+          </span>
+        </div>
+        <pre><code id="paste-content"></code></pre>
+        <button id="back-btn" class="glow">
+          <i class="fas fa-arrow-left"></i> Back to Editor
+        </button>
+      </div>
+    </main>
+
+    <footer class="glass">
+      <p>Made with <i class="fas fa-heart pulse"></i> by PasteDC</p>
+      <div class="footer-links">
+        <a href="#"><i class="fas fa-info-circle"></i> About</a>
+        <a href="#"><i class="fas fa-shield-alt"></i> Privacy</a>
+        <a href="#"><i class="fas fa-code-branch"></i> API</a>
+      </div>
+    </footer>
+  </div>
+
+  <div class="particles" id="particles-js"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="script.js"></script>
+</body>
+  </html>
